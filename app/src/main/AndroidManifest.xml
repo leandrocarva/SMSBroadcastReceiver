@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.logonrm.smsbroadcastreceiver">
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMSMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -16,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".SMSBroadcastReceiver">
+            <intent-filter android:priority="5000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
